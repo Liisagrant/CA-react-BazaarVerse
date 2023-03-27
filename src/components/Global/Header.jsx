@@ -9,7 +9,7 @@ const Header = () => {
       <nav className="bg-background shadow">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 justify-between">
-            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex flex-1 items-stretch justify-start">
               <div className="flex flex-shrink-0 items-center">
                 <Link to="/">
                   <img
@@ -18,7 +18,7 @@ const Header = () => {
                     alt="BizaarVerse"
                   />
                   <img
-                    className="h-8 w-auto hidden md:block"
+                    className="h-12 w-auto hidden md:block"
                     src={LOGO}
                     alt="BizaarVerse"
                   />
@@ -26,14 +26,16 @@ const Header = () => {
               </div>
               <div className="ml-6 flex space-x-8">
                 <NavLink
-                  href="#"
-                  className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"
+                  to="#"
+                  activeClassName="font-bold border-b-2 border-indigo-500 text-gray-900"
+                  className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
                   Products
                 </NavLink>
                 <NavLink
-                  href="#"
-                  className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                  to="#"
+                  activeClassName="font-bold border-b-2 border-indigo-500 text-gray-900"
+                  className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
                   Contact
                 </NavLink>
