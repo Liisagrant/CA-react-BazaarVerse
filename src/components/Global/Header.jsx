@@ -5,7 +5,7 @@ import LOGOMOBILE from "../../../public/assets/FAVICON.svg";
 
 const Header = () => {
   return (
-    <header>
+    <header className="m-0">
       <nav className="bg-background shadow">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 justify-between">
