@@ -27,7 +27,7 @@ export const fetchProducts = () => async (dispatch) => {
     const response = await fetch("https://api.noroff.dev/api/v1/online-shop");
     const data = await response.json();
     console.log(data);
-    dispatch(SET_PRODUCTS(data.products));
+    dispatch(SET_PRODUCTS(data));
   } catch (e) {
     dispatch(setError(true, e.message));
     return console.error(e.message);
