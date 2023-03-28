@@ -1,17 +1,30 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import Layout from "./components/Layout/Layout";
-import HeroBanner from "./components/HeroBanner";
-import AllProducts from "./components/pages/AllProducts";
+import HeroBanner from "./components/pages/HomePage/HeroBanner";
+import AllProducts from "./components/pages/ProductsPage/AllProducts";
+import ProductDetail from "../src/components/pages/ProductDetailPage/ProductDetail";
+import { fetchProducts } from "./store/modules/productSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import Router from "./routes/Router";
 
 function App() {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.products);
+  console.log("App.jsx products:", products);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
   return (
-    <Router>
+    <>
+      <BrowserRouter>
         <Layout>
-          <HeroBanner />
-          <AllProducts />
+          <Router />
         </Layout>
-    </Router>
+      </BrowserRouter>
+    </>
   );
 }
 
