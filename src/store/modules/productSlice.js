@@ -38,7 +38,7 @@ export const fetchProductById = (id) => async (dispatch) => {
   dispatch(SET_SINGLE_PRODUCT({}));
   let response;
   try {
-    response = await fetch(`https://api.noroff.dev/api/v1/online-shop${id}`);
+    response = await fetch(`https://api.noroff.dev/api/v1/online-shop/${id}`);
     const data = await response.json();
     console.log("Single Product Data: ", data);
     dispatch(SET_SINGLE_PRODUCT(data));

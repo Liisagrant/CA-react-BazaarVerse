@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { fetchProducts } from "../../store/modules/productSlice";
+import { fetchProducts } from "../../../store/modules/productSlice";
 import { Link } from "react-router-dom";
+import Discount from "./Discount";
 
 const AllProducts = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,12 @@ const AllProducts = () => {
     dispatch(fetchProducts({ products }));
   }, [dispatch]);
   console.log(products);
+
+  // const discountedPrice = ApplyDiscount(
+  //   product.price,
+  //   product.discountPercentage
+  // );
+
   return (
     <div className="mx-auto max-w-7xl mt-10 px-4 sm:px-6 lg:px-8 rounded-sm">
       <div className="bg-background">
@@ -33,9 +40,6 @@ const AllProducts = () => {
                       src={product.imageUrl}
                       alt="Product Image"
                     />
-                    <span class="bg-red-500 text-white text-xs font-semibold absolute top-2 right-2 py-1 px-2 rounded">
-                      SALE
-                    </span>
                     <div class="mt-4">
                       <h2 class="text-gray-900 font-semibold my-2 text-lg">
                         {product.title}
