@@ -22,7 +22,7 @@ const AllProducts = () => {
             Products
           </h2>
 
-          <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
             {products.map((product) => {
               const discountPercentage = calculateDiscountPercentage(
                 product.price,
@@ -31,43 +31,43 @@ const AllProducts = () => {
               return (
                 <div
                   key={product.id}
-                  className="group relative flex flex-col gap-y-3 rounded-md border border-gray-300 hover:border-gray-400 hover:shadow-lg transition-all duration-300 p-4 bg-mintcream mx-auto"
+                  className="group relative flex flex-col gap-y-3 p-4 bg-mintcream mx-auto min-w-0 w-[310px] h-96 md:w-60 lg:w-64"
                 >
-                  <div class="bg-white shadow-md rounded-lg p-4 w-64">
-                    <div class="relative">
+                  <div className="bg-white shadow-md rounded-lg p-4 h-full w-full flex flex-col">
+                    <div className="relative flex-grow">
                       <img
-                        class="w-full h-40 object-cover object-center rounded"
+                        className="w-full h-40 object-cover object-center rounded"
                         src={product.imageUrl}
                         alt="Product Image"
                       />
                       {discountPercentage > 0 && (
-                        <span class="bg-red-500 text-white text-xs font-semibold absolute top-2 right-2 py-1 px-2 rounded">
+                        <span className="bg-red-500 text-white text-xs font-semibold absolute top-2 right-2 py-1 px-2 rounded">
                           {discountPercentage}% OFF
                         </span>
                       )}
                     </div>
-                    <div class="mt-4">
-                      <h2 class="text-gray-900 font-semibold text-lg">
+                    <div className="mt-4 flex-grow">
+                      <h2 className="text-gray-900 font-semibold text-lg">
                         {product.title}
                       </h2>
-                      <div class="mt-2">
+                      <div className="mt-2">
                         {discountPercentage > 0 ? (
                           <>
-                            <span class="text-gray-900 font-semibold">
+                            <span className="text-gray-900 font-semibold">
                               {product.discountedPrice} $
                             </span>
-                            <span class="text-gray-500 line-through ml-2">
+                            <span className="text-gray-500 line-through ml-2">
                               {product.price} $
                             </span>
                           </>
                         ) : (
-                          <span class="text-gray-900 font-semibold">
+                          <span className="text-gray-900 font-semibold">
                             {product.price} $
                           </span>
                         )}
                       </div>
                       <Link to={`/products/${product.id}`}>
-                        <button class="bg-main text-white font-semibold text-sm py-2 px-4 mt-4 w-full rounded hover:bg-lightblue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1">
+                        <button className="bg-main text-white font-semibold text-sm py-2 px-4 mt-4 w-full rounded hover:bg-lightblue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1">
                           View Details
                         </button>
                       </Link>
