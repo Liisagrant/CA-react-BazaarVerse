@@ -53,7 +53,7 @@ const AllProducts = () => {
                       <div className="mt-2">
                         {discountPercentage > 0 ? (
                           <>
-                            <span className="text-gray-900 font-semibold">
+                            <span className="text-red-500 font-semibold">
                               {product.discountedPrice} $
                             </span>
                             <span className="text-gray-500 line-through ml-2">
