@@ -31,7 +31,7 @@ const AllProducts = () => {
               return (
                 <div
                   key={product.id}
-                  className="group relative flex flex-col gap-y-3 rounded-md border border-gray-300 hover:border-gray-400 hover:shadow-lg transition-all duration-300 p-4 bg-mintcream"
+                  className="group relative flex flex-col gap-y-3 rounded-md border border-gray-300 hover:border-gray-400 hover:shadow-lg transition-all duration-300 p-4 bg-mintcream mx-auto"
                 >
                   <div class="bg-white shadow-md rounded-lg p-4 w-64">
                     <div class="relative">
@@ -66,9 +66,11 @@ const AllProducts = () => {
                           </span>
                         )}
                       </div>
-                      <button class="bg-indigo-600 text-white font-semibold text-sm py-2 px-4 mt-4 rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1">
-                        View Details
-                      </button>
+                      <Link to={`/products/${product.id}`}>
+                        <button class="bg-main text-white font-semibold text-sm py-2 px-4 mt-4 w-full rounded hover:bg-lightblue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1">
+                          View Details
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
