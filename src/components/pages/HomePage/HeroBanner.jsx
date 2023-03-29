@@ -5,9 +5,9 @@ const HeroBanner = () => {
   return (
     <div className="bg-main p-20 w-full">
       <div className="flex flex-col max-w-7xl mx-auto md:flex-row lg:px-10">
-        <div className="px-4">
+        <div className="px-4 flex flex-col items-center justify-center">
           <h1
-            className="text-bold text-3xl font-black drop-shadow-lg md:text-5xl lg:text-7xl"
+            className="text-bold text-3xl font-black drop-shadow-lg md:text-4xl lg:text-7xl"
             style={{
               background: "linear-gradient(90deg, #F25F5C, #FFFFFF)",
               WebkitBackgroundClip: "text",
@@ -22,7 +22,7 @@ const HeroBanner = () => {
             the latest trends in electronics from the biggest companies.
           </p>
         </div>
-        <img src={HeroBannerImg} className="h-60 md:h-70 lg:h-80 mt-10" />
+        <img src={HeroBannerImg} className="h-60 md:h-70 lg:h-80 mt-6" />
       </div>
     </div>
   );
