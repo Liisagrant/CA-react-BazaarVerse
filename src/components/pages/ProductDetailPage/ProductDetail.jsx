@@ -1,14 +1,17 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductById } from "../../../store/modules/productSlice";
 import { addItemToCart } from "../../../store/modules/cartSlice";
+import { Link } from "react-router-dom";
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
   const { singleProduct } = useSelector((state) => state.products);
   let { id } = useParams();
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
   useEffect(() => {
     if (id) {
@@ -74,13 +77,30 @@ const ProductDetail = () => {
               <p>No reviews for this product. Leave a review!</p>
             )}
           </div>
-          <div className="flex justify-center">
-            <button
-              onClick={() => dispatch(addItemToCart(singleProduct))}
-              className="bg-main text-white font-semibold text-sm py-2 px-4 mt-4 md:mt-0 rounded hover:bg-lightblue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1"
-            >
-              add to cart
-            </button>
+          <div className="flex flex-row justify-around">
+            <div>
+              <button
+                onClick={() => {
+                  dispatch(addItemToCart(singleProduct));
+                  setButtonDisabled(true);
+                }}
+                disabled={buttonDisabled}
+                className={`${
+                  buttonDisabled
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-main hover:bg-lightblue focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1"
+                } text-white font-semibold text-sm py-2 px-4 mt-4 md:mt-0 rounded `}
+              >
+                add to cart
+              </button>
+            </div>
+            <div>
+              <Link to="/products">
+                <button className="bg-main text-white font-semibold text-sm py-2 px-4 mt-4 md:mt-0 rounded hover:bg-lightblue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1">
+                  More products
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
