@@ -15,6 +15,14 @@ const ProductDetail = () => {
     }
   }, [dispatch, id]);
 
+  if (!singleProduct) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div>Loading...</div>
+      </div>
+    );
+  }
+
   console.log(singleProduct);
 
   return (
@@ -51,7 +59,7 @@ const ProductDetail = () => {
                 >
                   <div className="flex text-black  pt-4  border-t border-gray w-96 md:w-80 md:px-2">
                     <div className="flex items-center gap-2">
-                      <p className="bg-secondary rounded-full text-black md:w-14 md:h-14 w-16 h-16 flex justify-center items-center text-sm font-light font-body">
+                      <p className="bg-secondary rounded-full text-black w-16 h-16 flex justify-center items-center text-xs font-light font-body">
                         {review.username}
                       </p>
                       <p className="text-sm font-light font-body border-b border-beig border-6">
