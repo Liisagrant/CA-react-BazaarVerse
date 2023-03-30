@@ -42,7 +42,6 @@ export const fetchProductById = (id) => async (dispatch) => {
     const data = await response.json();
     console.log("Single Product Data: ", data);
     dispatch(SET_SINGLE_PRODUCT(data));
-    dispatch(setLoadingState(false));
   } catch (e) {
     console.log("here error happened :( ");
     return console.error(e.message);
