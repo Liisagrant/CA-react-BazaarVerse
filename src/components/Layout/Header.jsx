@@ -4,6 +4,11 @@ import LOGO from "../../../public/assets/BazzarVerseLOGO.svg";
 import LOGOMOBILE from "../../../public/assets/FAVICON.svg";
 
 const Header = () => {
+  const generateNavLinkClass = (isActive) =>
+    `inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium text-main hover:text-lightblue ${
+      isActive ? "font-bold border-b-2 border-main" : "border-transparent"
+    }`;
+
   return (
     <header className="m-0 p-0">
       <nav className="bg-background shadow">
@@ -27,15 +32,13 @@ const Header = () => {
               <div className="ml-6 flex space-x-8">
                 <NavLink
                   to="/products"
-                  activeClassName="font-bold border-b-2 border-indigo-500 text-main"
-                  className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-main hover:text-gray-700"
+                  className={({ isActive }) => generateNavLinkClass(isActive)}
                 >
                   Products
                 </NavLink>
                 <NavLink
                   to="/contact"
-                  activeClassName="font-bold border-b-2 border-indigo-500 text-main"
-                  className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-main hover:text-gray-700"
+                  className={({ isActive }) => generateNavLinkClass(isActive)}
                 >
                   Contact
                 </NavLink>
