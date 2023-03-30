@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductById } from "../../../store/modules/productSlice";
+import { addItemToCart } from "../../../store/modules/cartSlice";
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
@@ -59,10 +60,10 @@ const ProductDetail = () => {
                 >
                   <div className="flex text-black  pt-4  border-t border-gray w-96 md:w-80 md:px-2">
                     <div className="flex items-center gap-2">
-                      <p className="bg-secondary rounded-full text-black w-16 h-16 flex justify-center items-center text-xs font-light font-body">
+                      <p className="bg-secondary rounded-full text-black w-16 h-16 flex justify-center items-center text-center text-xs font-light font-body">
                         {review.username}
                       </p>
-                      <p className="text-sm font-light font-body border-b border-beig border-6">
+                      <p className="text-sm font-light font-body">
                         {review.description}
                       </p>
                     </div>
@@ -74,7 +75,10 @@ const ProductDetail = () => {
             )}
           </div>
           <div className="flex justify-center">
-            <button class="bg-main text-white font-semibold text-sm py-2 px-4 mt-4 md:mt-0 rounded hover:bg-lightblue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1">
+            <button
+              onClick={() => dispatch(addItemToCart(singleProduct))}
+              className="bg-main text-white font-semibold text-sm py-2 px-4 mt-4 md:mt-0 rounded hover:bg-lightblue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1"
+            >
               add to cart
             </button>
           </div>
