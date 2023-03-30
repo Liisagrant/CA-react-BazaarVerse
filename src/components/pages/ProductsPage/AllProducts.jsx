@@ -4,26 +4,44 @@ import { useState, useEffect } from "react";
 import { fetchProducts } from "../../../store/modules/productSlice";
 import { Link } from "react-router-dom";
 import calculateDiscountPercentage from "./calculateDiscountPercentage";
+import SearchBar from "../HomePage/Searchbar";
 
 const AllProducts = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products);
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
   useEffect(() => {
     dispatch(fetchProducts({ products }));
   }, [dispatch]);
   console.log(products);
 
+  useEffect(() => {
+    setFilteredProducts(products);
+  }, [products]);
+
+  const handleSearch = (searchTerm) => {
+    if (searchTerm) {
+      const filtered = products.filter((product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    } else {
+      setFilteredProducts(products);
+    }
+  };
+
   return (
     <div className="mx-auto max-w-7xl mt-10 px-4 sm:px-6 lg:px-8 rounded-sm">
+      <SearchBar onSearch={handleSearch} />
       <div className="bg-background">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="text-4xl text-main font-inter font-bold tracking-tight text-mintcream text-center">
             Products
           </h2>
 
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-            {products.map((product) => {
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {filteredProducts.map((product) => {
               const discountPercentage = calculateDiscountPercentage(
                 product.price,
                 product.discountedPrice
