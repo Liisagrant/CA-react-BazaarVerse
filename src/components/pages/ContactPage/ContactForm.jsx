@@ -34,7 +34,7 @@ const ContactForm = () => {
     },
   });
   return (
-    <div className="w-full max-w-md mx-auto p-4 my-20">
+    <div className="w-full max-w-md mx-auto p-4">
       {isSubmitted ? (
         <div className="flex flex-col justify-center items-center md:items-start">
           <h2 className="lg:mt-40 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">

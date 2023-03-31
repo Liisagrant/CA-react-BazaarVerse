@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <header className="m-0 p-0">
-      <nav className="bg-background shadow">
+      <nav className="bg-layout shadow">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="h-16 relative flex md:h-20 justify-between">
             <div className="flex flex-1 items-stretch justify-start">

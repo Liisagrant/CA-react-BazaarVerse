@@ -6,6 +6,7 @@ import HomePage from "../components/pages/HomePage/HomePage";
 import CheckoutPage from "../components/pages/Checkout/CheckoutPage";
 import ContactPage from "../components/pages/ContactPage/Contact";
 import SuccessPage from "../components/pages/success/SuccessPage";
+import NotFound from "../components/pages/404/NotFound";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
         <Route path="/cart" element={<CheckoutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/success" element={<SuccessPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
