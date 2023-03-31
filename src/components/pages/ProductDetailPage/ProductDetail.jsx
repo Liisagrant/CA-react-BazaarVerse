@@ -27,6 +27,24 @@ const ProductDetail = () => {
     );
   }
 
+  function displayPrice(singleProduct) {
+    return singleProduct.discountedPrice &&
+      singleProduct.discountedPrice < singleProduct.price ? (
+      <>
+        <span className="text-red-700 font-semibold">
+          {singleProduct.discountedPrice} $
+        </span>
+        <span className="text-gray-500 line-through ml-2">
+          {singleProduct.price} $
+        </span>
+      </>
+    ) : (
+      <span className="text-gray-700 font-semibold">
+        {singleProduct.price} $
+      </span>
+    );
+  }
+
   console.log(singleProduct);
 
   return (
@@ -46,14 +64,9 @@ const ProductDetail = () => {
             {singleProduct.description}
           </p>
           <div className="mt-2">
-            <span className="text-gray-900 font-semibold">
-              {singleProduct.discountedPrice}
-            </span>
-            <span className="text-gray-500 line-through ml-2">
-              {singleProduct.price}
-            </span>
+            <div className="mt-2">{displayPrice(singleProduct)}</div>
           </div>
-          <div className="bg-white max-w-3xl mx-auto my-16 md:my-4">
+          <div className="bg-white max-w-3xl mx-auto my-16 md:my-16">
             <h2 className="font-bold text-xl lg:text-2xl">Reviews:</h2>
             {singleProduct.reviews && singleProduct.reviews.length ? (
               singleProduct.reviews.map((review) => (
@@ -66,7 +79,7 @@ const ProductDetail = () => {
                       <p className="bg-secondary rounded-full text-black w-16 h-16 flex justify-center items-center text-center text-xs font-light font-body">
                         {review.username}
                       </p>
-                      <p className="text-sm font-light font-body">
+                      <p className="text-sm font-light font-body max-w-[200px]">
                         {review.description}
                       </p>
                     </div>
