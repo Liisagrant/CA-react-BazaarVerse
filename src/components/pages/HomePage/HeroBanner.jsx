@@ -3,11 +3,11 @@ import HeroBannerImg from "../../../../public/assets/heroimg.svg";
 
 const HeroBanner = () => {
   return (
-    <div className="bg-main p-20 w-full">
+    <div className="bg-main p-4 md:p-20 w-full">
       <div className="flex flex-col max-w-7xl mx-auto md:flex-row lg:px-10">
         <div className="px-4 flex flex-col items-center justify-center">
           <h1
-            className="text-bold text-3xl font-black drop-shadow-lg md:text-4xl lg:text-7xl"
+            className=" pt-16 md:pt-0 text-bold text-3xl font-black drop-shadow-lg md:text-4xl lg:text-7xl"
             style={{
               background: "linear-gradient(90deg, #F25F5C, #FFFFFF)",
               WebkitBackgroundClip: "text",

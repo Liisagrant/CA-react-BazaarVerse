@@ -32,10 +32,10 @@ const AllProducts = () => {
   };
 
   return (
-    <div className="mx-auto max-w-7xl mt-10 px-4 sm:px-6 lg:px-8 rounded-sm">
+    <div className="mx-auto max-w-7xl mt-10 lg:px-8 rounded-sm">
       <SearchBar onSearch={handleSearch} />
       <div className="bg-background">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="mx-auto max-w-2xl lg:max-w-7xl lg:px-8">
           <h2 className="text-4xl text-main font-inter font-bold tracking-tight text-mintcream text-center">
             Products
           </h2>
@@ -49,7 +49,7 @@ const AllProducts = () => {
               return (
                 <div
                   key={product.id}
-                  className="group relative flex flex-col gap-y-3 p-4 bg-mintcream mx-auto min-w-0 w-[310px] h-96 md:w-60 lg:w-64"
+                  className="group relative flex flex-col gap-y-3 md:p-4 bg-mintcream mx-auto min-w-0 w-[300px] h-96 md:w-60 lg:w-64"
                 >
                   <div className="bg-white shadow-md rounded-lg p-4 h-full w-full flex flex-col">
                     <div className="relative flex-grow">
