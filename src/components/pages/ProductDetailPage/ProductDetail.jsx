@@ -46,7 +46,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="bg-white p-4 max-w-3xl mx-auto my-16">
+    <div className="bg-white md:p-4 max-w-3xl mx-auto my-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="relative">
           <img
@@ -54,7 +54,7 @@ const ProductDetail = () => {
             src={singleProduct.imageUrl}
           />
         </div>
-        <div>
+        <div className="px-2">
           <h2 className="text-gray-900 font-semibold text-lg">
             {singleProduct.title}
           </h2>
@@ -70,9 +70,9 @@ const ProductDetail = () => {
               singleProduct.reviews.map((review) => (
                 <div
                   key={review.id}
-                  className="mt-6 mx-auto max-w-7xl px-4 sm:px-0 "
+                  className="mt-6 mx-auto max-w-7xl md:px-4 sm:px-0 "
                 >
-                  <div className="flex text-black  pt-4  border-t border-gray w-96 md:w-80 md:px-2">
+                  <div className="flex text-black  pt-4  border-t border-gray w-76 md:w-80 md:px-2">
                     <div className="flex items-center gap-2">
                       <p className="bg-secondary rounded-full text-black w-16 h-16 flex justify-center items-center text-center text-xs font-light font-body">
                         {review.username}

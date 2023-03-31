@@ -22,7 +22,7 @@ const HeroBanner = () => {
             the latest trends in electronics from the biggest companies.
           </p>
         </div>
-        <img src={HeroBannerImg} className="h-60 md:h-70 lg:h-80 mt-6" />
+        <img src={HeroBannerImg} className=" pb-12 h-60 md:h-70 lg:h-80 mt-6" />
       </div>
     </div>
   );

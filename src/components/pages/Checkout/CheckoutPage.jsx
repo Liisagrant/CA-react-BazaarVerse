@@ -53,7 +53,7 @@ function CheckoutPage() {
             <Link to="/success">
               <button
                 onClick={handleCheckout}
-                className="w-80 py-2 text-white bg-main rounded-md hover:bg-lightblue focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-60 py-2 text-white bg-main rounded-md hover:bg-lightblue focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 Checkout
               </button>
