@@ -45,8 +45,6 @@ const ProductDetail = () => {
     );
   }
 
-  console.log(singleProduct);
-
   return (
     <div className="bg-white p-4 max-w-3xl mx-auto my-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

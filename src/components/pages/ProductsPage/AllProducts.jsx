@@ -14,7 +14,6 @@ const AllProducts = () => {
   useEffect(() => {
     dispatch(fetchProducts({ products }));
   }, [dispatch]);
-  console.log(products);
 
   useEffect(() => {
     setFilteredProducts(products);

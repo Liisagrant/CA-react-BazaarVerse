@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeItemFromCart } from "../../../store/modules/cartSlice";
 import { clearCart } from "../../../store/modules/cartSlice";
 import CartItem from "./CartItem";
 
@@ -19,8 +18,6 @@ function CheckoutPage() {
   const handleCheckout = () => {
     dispatch(clearCart());
   };
-
-  console.log(itemsInCart);
 
   return (
     <div className="bg-gray-50 max-w-5xl mx-2 md:mx-auto my-20 shadow-md rounded-md">

@@ -1,5 +1,3 @@
-import React from "react";
-
 const calculateDiscountPercentage = (originalPrice, discountedPrice) => {
   const discount = originalPrice - discountedPrice;
   const discountPercentage = (discount / originalPrice) * 100;

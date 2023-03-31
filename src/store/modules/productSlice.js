@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { setError } from "./errorSlice";
 
 const productsSlice = createSlice({
   name: "products",
@@ -8,11 +9,9 @@ const productsSlice = createSlice({
   },
   reducers: {
     SET_PRODUCTS: (state, action) => {
-      console.log("SET_PRODUCTS: action.payload", action.payload);
       state.products = action.payload;
     },
     SET_SINGLE_PRODUCT: (state, action) => {
-      console.log("SET_SINGLE_PRODUCT: action.payload", action.payload);
       state.singleProduct = action.payload;
     },
   },
@@ -25,12 +24,13 @@ const { SET_SINGLE_PRODUCT } = productsSlice.actions;
 export const fetchProducts = () => async (dispatch) => {
   try {
     const response = await fetch("https://api.noroff.dev/api/v1/online-shop");
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
     const data = await response.json();
-    console.log(data);
     dispatch(SET_PRODUCTS(data));
-  } catch (e) {
-    dispatch(setError(true, e.message));
-    return console.error(e.message);
+  } catch (error) {
+    dispatch(setError(true, "Error fetching products"));
   }
 };
 
@@ -40,16 +40,12 @@ export const fetchProductById = (id) => async (dispatch) => {
   try {
     response = await fetch(`https://api.noroff.dev/api/v1/online-shop/${id}`);
     const data = await response.json();
-    console.log("Single Product Data: ", data);
     dispatch(SET_SINGLE_PRODUCT(data));
   } catch (e) {
-    console.log("here error happened :( ");
     return console.error(e.message);
   }
   if (response.ok) {
-    console.log("the response is correct");
   } else {
-    console.log("the response is not ok");
     dispatch(setError(true, "some error happened"));
   }
 };

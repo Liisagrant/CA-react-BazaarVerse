@@ -1,13 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import HeroBanner from "./HeroBanner";
 import AllProducts from "../ProductsPage/AllProducts";
-import Searchbar from "./Searchbar";
+import ErrorComponent from "../../global/ErrorComponent";
 
 const HomePage = () => {
+  const { isError } = useSelector((state) => state.error);
+  const { errorMessage } = useSelector((state) => state.error);
+
   return (
     <div>
       <HeroBanner />
-      <AllProducts />
+      {isError ? <ErrorComponent message={errorMessage} /> : <AllProducts />}
     </div>
   );
 };
