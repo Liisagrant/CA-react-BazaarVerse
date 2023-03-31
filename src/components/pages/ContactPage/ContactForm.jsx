@@ -60,7 +60,7 @@ const ContactForm = () => {
       ) : (
         <form
           onSubmit={formik.handleSubmit}
-          className="bg-white rounded px-2 md:px-8 pt-16 pb-4 mb-4"
+          className="bg-white rounded px-2 md:px-8 pt-2 pb-4 mb-4"
         >
           <div className="mb-4">
             <label
