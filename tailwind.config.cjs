@@ -21,7 +21,7 @@ module.exports = {
         lightblue: "#4977A6",
         secondary: "#E18886",
         accent: "#797D7F",
-        background: "#FBFBFC",
+        background: "#A2BCD7",
         Gray: "#A7A2A2",
         text: "#333",
         darkgreen: "#165664",
