@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductById } from "../../../store/modules/productSlice";
 import { addItemToCart } from "../../../store/modules/cartSlice";
 import { Link } from "react-router-dom";
+import calculateDiscountPercentage from "../ProductsPage/calculateDiscountPercentage";
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
@@ -45,6 +46,24 @@ const ProductDetail = () => {
     );
   }
 
+  function displayDiscountPercentage(singleProduct) {
+    if (
+      singleProduct.discountedPrice &&
+      singleProduct.discountedPrice < singleProduct.price
+    ) {
+      const discountPercentage = calculateDiscountPercentage(
+        singleProduct.price,
+        singleProduct.discountedPrice
+      );
+      return (
+        <div className="bg-red-500 w-20 text-center mt-2 text-white text-xs font-semibold py-1 px-2 rounded">
+          {discountPercentage}% OFF
+        </div>
+      );
+    }
+    return null;
+  }
+
   return (
     <div className="bg-white md:p-4 max-w-3xl mx-auto my-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -63,6 +82,7 @@ const ProductDetail = () => {
           </p>
           <div className="mt-2">
             <div className="mt-2">{displayPrice(singleProduct)}</div>
+            {displayDiscountPercentage(singleProduct)}
           </div>
           <div className="bg-white max-w-3xl mx-auto my-16 md:my-16">
             <h2 className="font-bold text-xl lg:text-2xl">Reviews:</h2>
