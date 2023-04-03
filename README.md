@@ -1,4 +1,7 @@
 # BazaarVerce 🛍️
+<img src="src/images/herobanner-readme.jpg" alt="Alt Text" style="width:100%">
+
+
 
 [![Made with React](https://img.shields.io/badge/Made%20with-React-61dafb.svg)](https://reactjs.org/)
 [![Made with Redux](https://img.shields.io/badge/Made%20with-Redux-764abc.svg)](https://redux.js.org/)
@@ -38,4 +41,6 @@ This project is licensed under the MIT License.
 Why do programmers prefer dark mode? Because light attracts bugs! 🐛 
 
 Take Care❤️
+<img src="src/images/cardlist-readme.jpg" alt="Alt Text" style="width:100%">
+
 
