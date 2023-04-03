@@ -33,7 +33,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="bg-white md:p-4 max-w-3xl mx-auto my-16 relative">
+    <div className="bg-white md:p-4 max-w-3xl mx-4 md:mx-auto my-16 relative">
       {singleProduct && !isError && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="relative">
