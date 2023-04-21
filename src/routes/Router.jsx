@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AllProducts from "../components/pages/ProductsPage/AllProducts";
 import ProductDetails from "../components/pages/ProductDetailPage/ProductDetail";
 import HomePage from "../components/pages/HomePage/HomePage";

@@ -12,7 +12,7 @@ const AllProducts = () => {
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   useEffect(() => {
-    dispatch(fetchProducts({ products }));
+    dispatch(fetchProducts({}));
   }, [dispatch]);
 
   useEffect(() => {
@@ -38,7 +38,6 @@ const AllProducts = () => {
           <h2 className="text-4xl text-main font-inter font-bold tracking-tight text-mintcream text-center">
             Products
           </h2>
-
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {filteredProducts.map((product) => {
               const discountPercentage = calculateDiscountPercentage(
