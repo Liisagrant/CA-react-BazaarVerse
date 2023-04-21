@@ -5,14 +5,25 @@ import { fetchProducts } from "../../../store/modules/productSlice";
 import { Link } from "react-router-dom";
 import calculateDiscountPercentage from "./calculateDiscountPercentage";
 import SearchBar from "../HomePage/Searchbar";
+import SpinnerComponent from "../../global/SpinnerComponent";
 
 const AllProducts = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products);
   const [filteredProducts, setFilteredProducts] = useState(products);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(fetchProducts({}));
+    const fetchProductsData = async () => {
+      try {
+        await dispatch(fetchProducts({}));
+      } catch (error) {
+        console.error("Failed to fetch products:", error);
+      }
+      setLoading(false);
+    };
+
+    fetchProductsData();
   }, [dispatch]);
 
   useEffect(() => {
@@ -30,6 +41,13 @@ const AllProducts = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <div>
+        <SpinnerComponent />
+      </div>
+    );
+  }
   return (
     <div className="mx-auto max-w-7xl mt-10 lg:px-8 rounded-sm">
       <SearchBar onSearch={handleSearch} />
